@@ -1,7 +1,8 @@
 services:
   - type: web
-    name: vin-recommender-app
+    name: fastapi-app
     env: python
-    buildCommand: pip install -r requirements.txt
-    startCommand: streamlit run main.py
     plan: free
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "uvicorn main:app --host 0.0.0.0 --port 10000"
+    autoDeploy: true
